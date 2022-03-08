@@ -2,9 +2,9 @@ package com.mphasis.seleniumjenkinsdemo.seleniumjenkins;
 
 import static org.testng.Assert.assertEquals;
 
-import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.testng.annotations.Test;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -17,7 +17,7 @@ public class AppTest
     private String url;
     private String expectedTitle;
 	
-	@BeforeEach
+	@BeforeMethod
 	public void before()
 	{
 		System.setProperty("webdriver.chrome.driver", "D:\\Work\\Mphasis\\jar files\\chromedriver.exe");
@@ -33,7 +33,7 @@ public class AppTest
 		String actualtitle = driver.getTitle();
 		assertEquals(actualtitle, expectedTitle);
     }
-    @AfterEach
+    @AfterMethod
 	public  void closeBrowser()
 	{
 		// 4) close the browser
